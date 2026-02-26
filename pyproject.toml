@@ -1,0 +1,13 @@
+[project]
+name = "terminalExecute"
+version = "1.0.0"
+description = "A short description of my package"
+requires-python = ">=3.6"
+dependencies = [
+    "numpy",
+    "requests"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

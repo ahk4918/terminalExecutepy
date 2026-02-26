@@ -1,0 +1,7 @@
+pyproject.toml
+terminalExecute.py
+terminalExecute.egg-info/PKG-INFO
+terminalExecute.egg-info/SOURCES.txt
+terminalExecute.egg-info/dependency_links.txt
+terminalExecute.egg-info/requires.txt
+terminalExecute.egg-info/top_level.txt
