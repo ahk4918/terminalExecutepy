@@ -1,8 +1,0 @@
-Metadata-Version: 2.4
-Name: terminalExecutepy
-Version: 0.1.0
-Summary: Execute terminal commands from Python easily.
-Author: Akhilesh
-License: MIT
-Requires-Python: >=3.8
-Description-Content-Type: text/markdown
