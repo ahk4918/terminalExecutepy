@@ -1,16 +1,22 @@
-# terminalExecutepy
+# terminalexecutepy
 
-`terminalExecutepy` is a lightweight Python utility for executing terminal or shell commands directly from Python with clean output handling and optional error management. It simplifies subprocess usage and provides a straightforward API for running commands programmatically across Windows, macOS, and Linux.
+`terminalexecutepy` provides a high‑level Python interface for running terminal commands, managing shells, executing scripts, and performing common developer tasks such as pip operations, directory navigation, and environment inspection. It wraps Python’s `subprocess` module with a cleaner, more ergonomic API and includes OS‑aware shell selection for Windows and Unix systems.
 
 ---
 
 ## Features
 
-- Execute terminal commands with a single function call.
-- Capture output, errors, and return codes.
-- Cross‑platform support.
-- No external dependencies.
-- Ideal for automation, scripting, and CLI tool integration.
+- OS‑aware shell selection (`cmd`, `powershell`, `bash`, `zsh`, `sh`)
+- Execute any terminal command with automatic error handling
+- Convenience helpers:
+  - `echo()` for quick output
+  - `pip()` for install, uninstall, list, upgrade
+  - `clear()` for screen clearing
+  - `list_dir()` for directory listing
+  - `chdir()` and `get_cwd()` for navigation
+  - `run_script()` for executing script files
+- Works on Windows, macOS, and Linux
+- No external dependencies
 
 ---
 
@@ -19,38 +25,52 @@
 Install from PyPI:
 
 ```bash
-pip install terminalExecutepy
-```
-Or install it from source:
-
-```bash
-pip install git+https://github.com/ahk4918/terminalExecutepy.git
+pip install terminalexecutepy
 ```
 
-## Usage:
+## Usage
 
-
-Basic example:
+Basic Example:
 
 ```python
-from terminalExecutepy import terminalExecute
+from terminalexecutepy import Terminal, Shells
 
-result = terminalExecute("echo Hello World")
-print(result.output)
+term = Terminal()
+term.echo("Hello from terminalexecutepy!")
 ```
 
-Example with error handling
+Selecting a Shell:
 
 ```python
-from terminalExecutepy import terminalExecute
+# Windows
+term.shell = Shells.CMD
+# or
+term.shell = Shells.POWERSHELL
 
-cmd = "dir"  # or 'ls' on Linux/macOS
-result = terminalExecute(cmd)
+# Unix
+term.shell = Shells.BASH
 
-if result.success:
-    print("Command output:")
-    print(result.output)
-else:
-    print("Command failed:")
-    print(result.error)
+```
+
+Using the pip command:
+
+```python
+term.pip("install", "requests")
+term.pip("list")
+term.pip("upgrade", "pip")
+term.pip("uninstall", "somepackage")
+```
+
+Directory tools:
+
+```python
+term.list_dir()
+term.chdir("..")
+term.get_cwd()
+```
+
+Running Scripts:
+
+```python
+term.run_script("myscript.sh")
 ```
