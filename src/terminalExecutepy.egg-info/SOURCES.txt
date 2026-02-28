@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+src/terminalExecutepy/__init__.py
+src/terminalExecutepy/terminalExecute.py
+src/terminalExecutepy.egg-info/PKG-INFO
+src/terminalExecutepy.egg-info/SOURCES.txt
+src/terminalExecutepy.egg-info/dependency_links.txt
+src/terminalExecutepy.egg-info/top_level.txt
